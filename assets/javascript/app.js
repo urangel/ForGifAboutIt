@@ -2,8 +2,6 @@ var apiKey = "exBBAicP44rjnvwmiMTacGHA5sff5dTU";
 var query;
 var memes = ["Spongebob", "Woman squinting", "Is this a piegon?", "I don't feel so good", "Change my mind", "Carpool karaoke", "One taught me love", "Surprised pikachu", "Baby Cardi B", "Evil Patrick", "Moth lamp", "Let's get this bread"]
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=" + apiKey + "&limit=10"; 
-var moving = false;
-
     
 function makeButtons(){
     for (i = 0; i< memes.length; i++){
@@ -92,13 +90,11 @@ $(document).ready(function() {
         var animated = $(this)[0].attributes[2].nodeValue;
 
 
-        if ( moving === true){
+        if ( $(this)[0].src === animated){
             $(this)[0].src = still;
-            moving = false;
         }
-        else if (moving === false){
+        else if ($(this)[0].src === still){
             $(this)[0].src = animated;
-            moving = true;
         }
 
 
