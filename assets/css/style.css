@@ -1,3 +1,25 @@
 .card {
     float: left;
 }
+
+body, html {
+    height: 100%;
+}
+
+h1, h4, #buttonArea {
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+}
+
+
+body {
+    background-image: url(images/abstract.jpg);
+    background-position: center;
+    background-size: cover;
+
+}
+
+#gifArea {
+    float: left;
+}

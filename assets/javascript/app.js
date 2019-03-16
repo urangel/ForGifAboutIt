@@ -1,14 +1,15 @@
 var apiKey = "exBBAicP44rjnvwmiMTacGHA5sff5dTU";
 var query;
-var memes = ["Spongebob", "Woman squinting", "Is this a piegon?", "I don't feel so good", "Change my mind", "Carpool karaoke", "One taught me love", "Surprised pikachu", "Baby Cardi B", "Evil Patrick", "Moth lamp", "Let's get this bread"]
+var series = ["Spongebob", "Swat Kats", "Ninja Turtles", "Rick and Morty", "Space Dandy", "Samurai Champloo", "Dragon Ball", "Bleach", "Jackie Chan Adventures", "One Punch Man", "Adventure Time", "We Bare Bears", "Pokemon"]
 var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=" + apiKey + "&limit=10"; 
     
 function makeButtons(){
-    for (i = 0; i< memes.length; i++){
+    $("#buttonArea").empty();
+    for (i = 0; i< series.length; i++){
         var gifButton = $("<button>");
         gifButton.addClass("btn");
-        gifButton.addClass("btn-outline-secondary");
-        gifButton.text(memes[i]);
+        gifButton.addClass("btn-outline-light");
+        gifButton.text(series[i]);
         gifButton.appendTo("#buttonArea");
     }
 }
@@ -17,7 +18,7 @@ $(document).ready(function() {
 
     makeButtons();
 
-    $(".btn").on("click", function(){
+    $(document).on("click", ".btn", function(){
 
         query = $(this).text();
         queryURL = "https://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=" + apiKey + "&limit=10"; 
@@ -31,7 +32,7 @@ $(document).ready(function() {
 
             var results = response.data;
             for (var j = 0; j< results.length; j++){
-                // console.log(results);
+                console.log(results);
 
                 var card = $("<div>");
                 card.addClass("card");
@@ -41,8 +42,8 @@ $(document).ready(function() {
                 var link = $("<button>");
                 link.appendTo(card);
 
-                var animated = results[j].images.fixed_height.url;
-                var still = results[j].images.fixed_height_still.url;
+                var animated = results[j].images.fixed_height_small.url;
+                var still = results[j].images.fixed_height_small_still.url;
                 var img = $("<img>");
                 img.addClass("animate");
                 img.attr("src", still);
@@ -72,15 +73,9 @@ $(document).ready(function() {
         query = $("#searchText").val();
         queryURL = "https://api.giphy.com/v1/gifs/search?q=" + query + "&api_key=" + apiKey + "&limit=10"; 
         
-        $.ajax({
-
-            url: queryURL,
-            method: "GET"
-
-        }).then(function(response){
-
-
-        })
+        series.push(query);
+        $("input[type=text]").val("");
+        makeButtons();
 
     });
 
