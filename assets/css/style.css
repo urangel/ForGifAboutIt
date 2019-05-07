@@ -1,17 +1,6 @@
-.card {
-    float: left;
-}
-
 body, html {
     height: 100%;
 }
-
-h1, h4, #buttonArea {
-    color: whitesmoke;
-    background-color: rgba(0, 0, 0, .5);
-    border-radius: 10px;
-}
-
 
 body {
     background-image: url(images/abstract.jpg);
@@ -20,6 +9,24 @@ body {
 
 }
 
+h1, h4, #buttonArea {
+    color: whitesmoke;
+}
+
+#header {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+#buttonArea{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #gifArea {
-    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

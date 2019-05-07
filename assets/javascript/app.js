@@ -11,6 +11,8 @@ function makeButtons(){
         gifButton.addClass("btn-outline-light");
         gifButton.text(series[i]);
         gifButton.appendTo("#buttonArea");
+        // gifButton.css("justify-content", "space-around");
+
     }
 }
 
